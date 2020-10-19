@@ -2,3 +2,4 @@
 
 * Initial push
 * Adding example
+* Updating README.md
