@@ -1,4 +1,4 @@
-library cybloc;
+library cyblock;
 
 import 'dart:async';
 

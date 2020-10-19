@@ -1,8 +1,13 @@
-part of cybloc;
+part of cyblock;
 
-abstract class Cybloc<T, S> {
+abstract class Cyblock<T, S> {
   /// Saved state during emit
   T state;
+
+  void initialState(T initState) {
+    state = initState;
+    _inStream.add(initState);
+  }
   
   final _streamController = new StreamController<T>.broadcast();
   StreamSink<T> get _inStream => _streamController.sink;
@@ -33,9 +38,13 @@ abstract class Cybloc<T, S> {
   }
   
   /// mapping event to state
-  void mapEventToState(S event);  
+  void mapEventToState(S event);
+
+  getState() {
+    _inStream.add(state);
+  }  
   
-  Cybloc() {
+  Cyblock() {
     _eventController.stream.listen(mapEventToState);
   }
 }
