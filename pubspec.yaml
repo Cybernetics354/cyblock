@@ -16,7 +16,7 @@ description: simple state management with dart stream
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 version: 0.0.1
-author: Hanif Miftahuddin<corecybernetics354@gmail.com>
+# author: Hanif Miftahuddin<corecybernetics354@gmail.com>
 homepage: https://github.com/Cybernetics354/cyblock
 
 environment:
