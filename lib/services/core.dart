@@ -44,7 +44,9 @@ abstract class Cyblock<T, S> {
     _inStream.add(state);
   }
 
-  Cyblock() {
+  /// to construct the initial value, use `Cyblock() : super(initialValue);`
+  Cyblock(T initState) {
+    state = initState; 
     _eventController.stream.listen(mapEventToState);
   }
 }

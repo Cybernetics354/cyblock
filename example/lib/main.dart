@@ -135,9 +135,7 @@ class SecondPageMainView extends StatelessWidget {
 /// Create cybloc
 class CounterCyblock extends Cyblock<int, CounterEvent> {
   static final CounterCyblock _singleton = CounterCyblock._();
-  CounterCyblock._() {
-    initialState(0);
-  }
+  CounterCyblock._() : super(10);
 
   static CounterCyblock get instance => _singleton;
 
