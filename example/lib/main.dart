@@ -1,6 +1,8 @@
 import 'package:cyblock/cyblock.dart';
 import 'package:flutter/material.dart';
 
+import 'view/with_builder.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -30,6 +32,16 @@ class _HomeMainViewState extends State<HomeMainView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(Icons.navigate_before),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => WithBuilderMainView()
+              ));
+            },
+          )
+        ],
         title: Text("Cyblock example"),
       ),
       body: SizedBox.expand(
