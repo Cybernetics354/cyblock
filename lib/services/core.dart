@@ -10,7 +10,7 @@ abstract class Cyblock<T, S> {
   }
 
   /// Controller for main state stream
-  final _streamController = new StreamController<T>.broadcast();
+  final _streamController = new BehaviorSubject<T>();
 
   /// for inputing state
   /// but you can use emit instead of using [_inStream] manually
@@ -20,7 +20,7 @@ abstract class Cyblock<T, S> {
   ///
   /// [SomeCyblocClass.stream]
   Stream<T> get stream => _streamController.stream;
-  final _eventController = new StreamController<S>.broadcast();
+  final _eventController = new BehaviorSubject<S>();
   StreamSink<S> get _eventListen => _eventController.sink;
 
   /// Use [emit] to update state
@@ -65,7 +65,7 @@ abstract class Cyblock<T, S> {
   }
 
   /// Controller for [CyblockBuilder]
-  final _builderController = new StreamController<CyblockStates>.broadcast();
+  final _builderController = new BehaviorSubject<CyblockStates>();
   
   /// Stream pipe for builder
   Stream<CyblockStates> get builderStream => _builderController.stream;
@@ -90,7 +90,7 @@ abstract class Cybit<T> {
   }
 
   /// Controller for main state stream
-  final _streamController = new StreamController<T>.broadcast();
+  final _streamController = new BehaviorSubject<T>();
 
   /// for inputing state
   /// but you can use emit instead of using [_inStream] manually
@@ -131,7 +131,7 @@ abstract class Cybit<T> {
   }
 
   /// Controller for [CyblockBuilder]
-  final _builderController = new StreamController<CyblockStates>.broadcast();
+  final _builderController = new BehaviorSubject<CyblockStates>();
   
   /// Stream pipe for builder
   Stream<CyblockStates> get builderStream => _builderController.stream;
