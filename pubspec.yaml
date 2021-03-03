@@ -20,10 +20,10 @@ version: 0.0.1+4
 homepage: https://github.com/Cybernetics354/cyblock
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
-  rxdart: ^0.25.0
+  rxdart: ^0.26.0
   flutter:
     sdk: flutter
 
