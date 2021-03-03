@@ -1,7 +1,6 @@
 import 'package:cyblock/cyblock.dart';
 import 'package:flutter/material.dart';
 
-
 class WithBuilderMainView extends StatefulWidget {
   @override
   _WithBuilderMainViewState createState() => _WithBuilderMainViewState();
@@ -46,7 +45,7 @@ class _WithBuilderMainViewState extends State<WithBuilderMainView> {
         cyblock: CounterCyblockWithBuilder.instance,
         onSuccess: (context, data) {
           return Center(
-            child: Text(data.data.toString()),
+            child: Text(data!.data.toString()),
           );
         },
         onLoading: (context) {
@@ -56,10 +55,7 @@ class _WithBuilderMainViewState extends State<WithBuilderMainView> {
         },
         onFailure: (context, error, callback) {
           return Center(
-            child: FlatButton(
-              child: Text("Reload"),
-              onPressed: callback
-            ),
+            child: FlatButton(child: Text("Reload"), onPressed: callback),
           );
         },
       ),
@@ -68,25 +64,26 @@ class _WithBuilderMainViewState extends State<WithBuilderMainView> {
 }
 
 class CounterCyblockWithBuilder extends Cyblock<int, String> {
-  static final CounterCyblockWithBuilder _singleton = CounterCyblockWithBuilder._();
+  static final CounterCyblockWithBuilder _singleton =
+      CounterCyblockWithBuilder._();
 
   static CounterCyblockWithBuilder get instance => _singleton;
 
   CounterCyblockWithBuilder._() : super(0);
 
   add(int count) {
-    emit(state+count);
+    emit(state! + count);
   }
 
   remove(int count) {
-    emit(state-count);
+    emit(state! - count);
   }
 
   addWithError() async {
     try {
       await Future.delayed(Duration(seconds: 1));
-      throw "Error";
-    } catch (e) {
+      throw Exception("Error");
+    } on Exception catch (e) {
       throwError(e);
     }
   }
