@@ -154,9 +154,9 @@ class CounterCyblock extends Cyblock<int, CounterEvent> {
   @override
   void mapEventToState(CounterEvent event) {
     if(event is IncrementEvent) {
-      emit(state+1);
+      emit(state!+1);
     } else if(event is DecrementEvent) {
-      emit(state-1);
+      emit(state!-1);
     }
   }
 }
